@@ -71,6 +71,7 @@ class MoviesController < ApplicationController
     
     if not director_name or director_name.empty?
       flash[:notice] = %Q{'#{movie.title}' has no director info}
+      movies_path = '/'
       redirect_to movies_path
     else
       @movies = Movie.find_all_by_director director_name
